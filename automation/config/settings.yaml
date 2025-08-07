@@ -1,0 +1,271 @@
+# Teamcenter Automation Configuration
+# Default settings for automation framework
+
+teamcenter:
+  # Base configuration
+  base_url: "https://teamcenter.epiroc.com/tc"
+  api_version: "v1"
+  timeout: 30
+  max_retries: 3
+  retry_delay: 1.0
+  
+  # API endpoints
+  endpoints:
+    rest: "/restful"
+    soa: "/services"
+    auth: "/auth"
+  
+  # Connection settings
+  connection:
+    pool_size: 5
+    keepalive: true
+    verify_ssl: true
+    ssl_cert_path: null  # Path to custom CA certificate
+  
+  # Authentication
+  auth:
+    method: "basic"  # Options: basic, token, sso, certificate
+    token_refresh_minutes: 55
+    sso_provider: "azure"  # Options: azure, okta, ping
+    
+# Epiroc-specific settings
+epiroc:
+  # Default values
+  facility: "Pitt Meadows"
+  default_group: "Engineering"
+  default_role: "Designer"
+  
+  # Equipment types
+  equipment_types:
+    - "Underground Loader"
+    - "Surface Drill Rig"
+    - "Rock Breaker"
+    - "Bolting Rig"
+    
+  # Custom properties prefix
+  property_prefix: "epr_"
+  
+  # Compliance requirements
+  compliance:
+    required_documents:
+      - type: "MSHA_Certification"
+        validity_days: 365
+      - type: "CE_Declaration"
+        validity_days: 730
+      - type: "Electrical_Safety_Test"
+        validity_days: 180
+      - type: "Pressure_Vessel_Cert"
+        validity_days: 365
+      - type: "Battery_Safety_Report"
+        validity_days: 90
+    
+    warning_days: 30  # Days before expiry to warn
+    
+# Automation settings
+automation:
+  # Batch processing
+  batch:
+    size: 50
+    parallel_workers: 4
+    
+  # File handling
+  files:
+    max_upload_size_mb: 100
+    allowed_cad_extensions:
+      - ".prt"
+      - ".asm"
+      - ".drw"
+      - ".sldprt"
+      - ".sldasm"
+      - ".dwg"
+      - ".dxf"
+      - ".step"
+      - ".iges"
+    temp_directory: "/tmp/teamcenter_automation"
+    
+  # Workflow automation
+  workflow:
+    auto_approve_threshold: "low"  # Options: low, medium, high, none
+    notification_email: "plm-notifications@epiroc.com"
+    escalation_hours: 48
+    
+  # Reporting
+  reporting:
+    output_directory: "./reports"
+    formats:
+      - "excel"
+      - "pdf"
+      - "html"
+    include_charts: true
+    
+# Logging configuration
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # File logging
+  file:
+    enabled: true
+    path: "./logs/automation.log"
+    max_size_mb: 10
+    backup_count: 5
+    
+  # Console logging
+  console:
+    enabled: true
+    colored: true
+    
+  # Remote logging (optional)
+  remote:
+    enabled: false
+    endpoint: "https://logging.epiroc.com/api/logs"
+    api_key: "${LOGGING_API_KEY}"
+    
+# Performance monitoring
+monitoring:
+  enabled: true
+  
+  # Metrics collection
+  metrics:
+    collect_interval_seconds: 60
+    export_format: "prometheus"  # Options: prometheus, json, csv
+    
+  # Alerts
+  alerts:
+    enabled: true
+    thresholds:
+      api_response_time_ms: 5000
+      error_rate_percent: 5
+      memory_usage_mb: 1000
+    
+  # Dashboards
+  dashboard:
+    enabled: false
+    port: 8080
+    
+# Database settings (for caching and results)
+database:
+  enabled: true
+  type: "sqlite"  # Options: sqlite, postgresql, mysql
+  
+  # SQLite settings
+  sqlite:
+    path: "./data/automation.db"
+    
+  # PostgreSQL settings (if used)
+  postgresql:
+    host: "localhost"
+    port: 5432
+    database: "teamcenter_automation"
+    username: "${DB_USERNAME}"
+    password: "${DB_PASSWORD}"
+    
+# Integration settings
+integrations:
+  # ERP integration
+  erp:
+    enabled: false
+    system: "SAP"  # Options: SAP, Oracle
+    endpoint: "https://sap.epiroc.com/api"
+    
+  # Email notifications
+  email:
+    enabled: true
+    smtp_server: "smtp.epiroc.com"
+    smtp_port: 587
+    use_tls: true
+    from_address: "teamcenter-automation@epiroc.com"
+    
+  # Slack notifications
+  slack:
+    enabled: false
+    webhook_url: "${SLACK_WEBHOOK_URL}"
+    channel: "#plm-automation"
+    
+  # Microsoft Teams
+  teams:
+    enabled: false
+    webhook_url: "${TEAMS_WEBHOOK_URL}"
+    
+# Development settings
+development:
+  debug_mode: false
+  mock_api: false
+  test_environment: "https://teamcenter-test.epiroc.com/tc"
+  
+# Feature flags
+features:
+  enable_caching: true
+  enable_async_operations: true
+  enable_ml_predictions: false
+  enable_auto_retry: true
+  enable_audit_logging: true
+  
+# Cache settings
+cache:
+  enabled: true
+  type: "redis"  # Options: memory, redis, file
+  ttl_seconds: 3600
+  
+  redis:
+    host: "localhost"
+    port: 6379
+    db: 0
+    password: "${REDIS_PASSWORD}"
+    
+# Security settings
+security:
+  # Encryption
+  encrypt_credentials: true
+  encryption_key: "${ENCRYPTION_KEY}"
+  
+  # API security
+  api_key_rotation_days: 30
+  require_https: true
+  
+  # Rate limiting
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 60
+    burst_size: 10
+    
+# Scheduling settings
+scheduling:
+  # Cron jobs
+  jobs:
+    compliance_check:
+      enabled: true
+      schedule: "0 8 * * *"  # Daily at 8 AM
+      
+    bom_sync:
+      enabled: false
+      schedule: "0 */4 * * *"  # Every 4 hours
+      
+    report_generation:
+      enabled: true
+      schedule: "0 17 * * 5"  # Friday at 5 PM
+      
+# Environment-specific overrides
+environments:
+  production:
+    teamcenter:
+      base_url: "https://teamcenter.epiroc.com/tc"
+    logging:
+      level: "WARNING"
+    development:
+      debug_mode: false
+      
+  staging:
+    teamcenter:
+      base_url: "https://teamcenter-staging.epiroc.com/tc"
+    logging:
+      level: "INFO"
+      
+  development:
+    teamcenter:
+      base_url: "https://teamcenter-dev.epiroc.com/tc"
+    logging:
+      level: "DEBUG"
+    development:
+      debug_mode: true
+      mock_api: true
