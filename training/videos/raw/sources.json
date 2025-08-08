@@ -13,6 +13,86 @@
       "date_added": "2025-01-08"
     }
   ],
+  "training_platforms": {
+    "siemens_xcelerator_academy": {
+      "name": "Siemens Xcelerator Academy",
+      "url": "https://www.plm.automation.siemens.com/global/en/support/training.html",
+      "type": "official",
+      "access": "paid",
+      "content": [
+        "On-demand video courses",
+        "Instructor-led training",
+        "Certification programs",
+        "Cloud-based labs"
+      ],
+      "epiroc_relevance": "critical",
+      "topics": [
+        "Administration",
+        "BOM Management",
+        "CAD Integration",
+        "Workflow Automation",
+        "Active Workspace"
+      ]
+    },
+    "udemy_free_course": {
+      "name": "Siemens PLM - Teamcenter Basics",
+      "url": "https://www.udemy.com/course/siemens-plm-teamcenter-basics/",
+      "type": "third-party",
+      "access": "free",
+      "duration": "self-paced",
+      "epiroc_relevance": "high",
+      "topics": [
+        "Introduction to Teamcenter",
+        "Basic navigation",
+        "Core concepts"
+      ]
+    },
+    "applied_cax": {
+      "name": "Applied CAx Training",
+      "url": "https://www.appliedcax.com/training/teamcenter",
+      "type": "partner",
+      "access": "paid",
+      "specialization": "BOM Management, CAD Integration",
+      "epiroc_relevance": "high",
+      "notes": "2023 Siemens Partner of the Year, manufacturing focus"
+    },
+    "swoosh_technologies": {
+      "name": "Swoosh Technologies",
+      "url": "https://www.swooshtech.com",
+      "type": "partner",
+      "access": "paid",
+      "formats": ["virtual", "on-site"],
+      "certification": true,
+      "epiroc_relevance": "medium"
+    },
+    "plm_coach": {
+      "name": "PLM Coach",
+      "url": "https://plmcoach.training",
+      "type": "partner",
+      "access": "paid",
+      "features": [
+        "Live demonstrations",
+        "Real-time projects",
+        "Certification guidance"
+      ],
+      "epiroc_relevance": "high"
+    }
+  },
+  "recommended_learning_paths": {
+    "beginner": [
+      "udemy_free_course",
+      "siemens_xcelerator_academy basics"
+    ],
+    "mining_equipment_focus": [
+      "applied_cax BOM training",
+      "plm_coach manufacturing workflows",
+      "siemens_xcelerator_academy administration"
+    ],
+    "administrator": [
+      "siemens_xcelerator_academy administration track",
+      "swoosh_technologies advanced courses"
+    ]
+  },
   "categories": {
     "demo": "Product demonstrations",
     "tutorial": "Step-by-step tutorials",
