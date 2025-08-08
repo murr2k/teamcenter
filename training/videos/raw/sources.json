@@ -1,0 +1,35 @@
+{
+  "videos": [
+    {
+      "id": "consensus-demo-01",
+      "title": "Teamcenter Consensus Demo",
+      "url": "https://play.goconsensus.com/s4404385e",
+      "duration": null,
+      "category": "demo",
+      "topics": ["overview", "features"],
+      "epiroc_relevance": "high",
+      "status": "pending",
+      "notes": "Initial demo video provided by user",
+      "date_added": "2025-01-08"
+    }
+  ],
+  "categories": {
+    "demo": "Product demonstrations",
+    "tutorial": "Step-by-step tutorials",
+    "webinar": "Webinars and presentations",
+    "training": "Official training materials",
+    "tips": "Tips and tricks videos"
+  },
+  "sources": {
+    "consensus": "https://play.goconsensus.com",
+    "siemens": "https://www.siemens.com/teamcenter",
+    "youtube": "https://www.youtube.com",
+    "internal": "Epiroc internal training portal"
+  },
+  "metadata": {
+    "last_updated": "2025-01-08",
+    "total_videos": 1,
+    "processed": 0,
+    "pending": 1
+  }
+}
