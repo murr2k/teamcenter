@@ -280,6 +280,7 @@ Detailed API documentation is available in:
 - [ ] Machine learning for predictive maintenance
 - [ ] Real-time monitoring dashboard
 - [ ] Mobile app integration
+- [ ] NLP to API interface - Natural language commands for Teamcenter operations
 
 ### Phase 3 (Q3 2025)
 - [ ] IoT sensor integration
