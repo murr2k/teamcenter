@@ -8,42 +8,42 @@ This subproject provides automation scripts, tools, and examples for integrating
 
 ```
 automation/
-├── README.md                    # This file
-├── requirements.txt            # Python dependencies
+├── README.md                        # This file
+├── requirements.txt                 # Python dependencies
 ├── config/
-│   ├── settings.yaml          # Configuration settings
-│   ├── credentials.env.example # Credential template
-│   └── endpoints.json         # API endpoint definitions
+│   ├── settings.yaml                # Configuration settings
+│   ├── credentials.env.example      # Credential template
+│   └── endpoints.json               # API endpoint definitions
 ├── src/
 │   ├── __init__.py
-│   ├── client/                # API client implementations
-│   │   ├── rest_client.py    # REST API client
-│   │   ├── soa_client.py     # SOA client wrapper
-│   │   └── auth.py           # Authentication handlers
-│   ├── services/              # Business logic services
-│   │   ├── equipment.py      # Equipment management
-│   │   ├── bom.py           # BOM operations
-│   │   ├── compliance.py    # Compliance automation
-│   │   ├── workflow.py      # Workflow automation
-│   │   └── reporting.py     # Report generation
-│   └── utils/                # Utility functions
-│       ├── logger.py         # Logging configuration
-│       ├── retry.py         # Retry mechanisms
-│       └── validators.py    # Data validators
-├── scripts/                   # Standalone automation scripts
+│   ├── client/                      # API client implementations
+│   │   ├── rest_client.py           # REST API client
+│   │   ├── soa_client.py            # SOA client wrapper
+│   │   └── auth.py                  # Authentication handlers
+│   ├── services/                    # Business logic services
+│   │   ├── equipment.py             # Equipment management
+│   │   ├── bom.py                   # BOM operations
+│   │   ├── compliance.py            # Compliance automation
+│   │   ├── workflow.py              # Workflow automation
+│   │   └── reporting.py             # Report generation
+│   └── utils/                       # Utility functions
+│       ├── logger.py                # Logging configuration
+│       ├── retry.py                 # Retry mechanisms
+│       └── validators.py            # Data validators
+├── scripts/                         # Standalone automation scripts
 │   ├── daily_compliance_check.py
 │   ├── bom_sync.py
 │   ├── ecn_processor.py
 │   └── batch_cad_import.py
-├── templates/                 # Document templates
+├── templates/                       # Document templates
 │   ├── ecn_template.json
 │   ├── compliance_report.html
 │   └── bom_comparison.xlsx
-├── tests/                     # Test suite
+├── tests/                           # Test suite
 │   ├── test_client.py
 │   ├── test_services.py
 │   └── fixtures/
-└── examples/                  # Usage examples
+└── examples/                        # Usage examples
     ├── create_equipment.py
     ├── manage_bom.py
     └── start_workflow.py
